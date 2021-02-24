@@ -8,7 +8,7 @@ require_once "links.php";
 <html>
 
 <head>
-    <title>Tests1</title>
+    <title>Tests</title>
     <link rel="stylesheet" href="../CSS/test.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
