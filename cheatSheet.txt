@@ -1,0 +1,6 @@
+heroku pg:psql postgresql-curly-26031 --app maths-test-creator
+SELECT * FROM db_name.tests;
+file_put_contents("php://stderr", "Insert statement ".$t.PHP_EOL);
+file_put_contents("php://stderr", "Test time ".$_SESSION["testStartTime"].PHP_EOL);
+file_put_contents("php://stderr", "Session name ".$_SESSION["username"].PHP_EOL);
+error_log("Insert statement ".$t);

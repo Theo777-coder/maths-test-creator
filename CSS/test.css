@@ -1,0 +1,487 @@
+.topcorner {
+    position: absolute;
+    display: inline;
+    top: 0;
+    right: 0;
+}
+
+.center {
+    text-align: center;
+}
+
+div.topics {
+    border: 1px solid black;
+    outline: none;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+div.topicsWarning {
+    border: 1px solid red;
+}
+
+button.prompt {
+    padding: 0.3em;
+    font-size: 12px;
+}
+
+button.promptRight {
+    right: 10px;
+}
+
+html {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+.navi {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+}
+
+button.promptLeft {
+    left: 10px;
+}
+
+button.promptPosition {
+    position: absolute;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form {
+    display: inline-block;
+    position: relative;
+    padding-right: 5px;
+}
+
+p.ex4 {
+    display: inline-block;
+}
+
+* {
+    font-family: Courier;
+}
+
+.spoiler2 {
+    color: black;
+    background-color: black;
+    width: 60px;
+    display: block;
+    border: 1px solid black;
+}
+
+.label:after {
+    color: white;
+    content: 'Answer';
+}
+
+.label:hover:after {
+    color: black;
+    content: attr(data-descr);
+}
+
+span.rightAnswer {
+    color: green;
+}
+
+p.success {
+    color: green;
+}
+
+span.wrongAnswer {
+    color: red;
+}
+
+span.test {
+    display: inline-block;
+}
+
+form.logoutButton {
+    z-index: 1000;
+    position: relative;
+}
+
+.attentionRedColor {
+    color: red;
+}
+
+.spoiler2:hover {
+    background-color: white;
+}
+
+div.box {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    border-width: thin;
+    border-style: solid;
+    border-color: black;
+    box-shadow: 1px 1px;
+    outline: none;
+}
+
+div.boxDisplay {
+    display: inline-block;
+}
+
+.profileInfoBox {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    border-width: thin;
+    border-style: solid;
+    border-color: black;
+    box-shadow: 1px 1px;
+    outline: none;
+    display: none;
+    position: absolute;
+    right: 10px;
+    margin-top: 10px;
+    background-color: white;
+    z-index: 2000;
+}
+
+.profileInfoBoxShow {
+    display: inline-block;
+}
+
+.wrongInput::placeholder {
+    color: red;
+}
+
+.wrongInput {
+    color: #ff0000;
+    border: 1px solid red;
+    box-shadow: 1px 1px red;
+    outline: none;
+}
+
+input[type=text], input[type=password], input[type=email], select {
+    padding: 12px 20px;
+    box-shadow: 1px 1px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input.normalBorder, select.normalBorder {
+    border: 1px solid black;
+}
+
+input[type=number] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-shadow: 1px 1px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.navLinks {
+    background-color: white;
+    color: black;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px black solid;
+}
+
+input.userAnswers {
+    margin-right: 15px;
+}
+
+input.small {
+    width: 150px;
+}
+
+input.questions {
+    padding: 9px 5px;
+    width: 70px;
+}
+
+p.warning {
+    color: #ff0000;
+}
+
+input[type=submit] {
+    background-color: white;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.1s;
+    outline: none;
+}
+
+form label.required:after {
+    color: #ff0000;
+    content: " *";
+}
+
+input[type=submit]:hover {
+    background-color: #00b62a;
+    color: black;
+    border: solid black;
+    border-width: 1px;
+}
+
+.showNotHidden {
+    display: inline;
+}
+
+div.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+div.message {
+    z-index: 11;
+    background: white;
+    color: black;
+    border: 1px black solid;
+    position: fixed;
+    width: 500px;
+    padding-bottom: 50px;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: white;
+    color: black;
+}
+
+div.outerDIv {
+    position: relative;
+    margin: 10px;
+}
+
+div.topLinks {
+    position: fixed;
+}
+
+@media only screen and (max-width: 600px) {
+    div.message {
+        z-index: 2;
+        background: white;
+        color: black;
+        border: 1px black solid;
+        position: absolute;
+        width: 250px;
+        position: fixed;
+        padding-bottom: 50px;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+div.profileIcon {
+    padding-top: 7px;
+    padding-right: 10px;
+}
+
+div.left {
+    position: absolute;
+    right: 0px;
+    margin-top: 2px;
+}
+
+input.logout {
+    background: white;
+    color: black;
+    border: solid black;
+    border-width: 1px;
+    transition-duration: 0.1s;
+}
+
+input.logout:hover {
+    background-color: #ff0000;
+    color: white;
+    border: solid white;
+    border-width: 1px;
+}
+
+button {
+    outline: none;
+    background-color: white;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.1s;
+    margin: 0 auto;
+}
+
+p.message {
+    margin: 0 auto;
+    width: 90%;
+}
+
+button:hover {
+    background-color: #00b62a;
+    color: black;
+    border: solid black;
+    border-width: 1px;
+}
+
+.testCredentials {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+h1.titlePrint {
+    display: none;
+}
+
+.fixedTimer {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    color: white;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+button:disabled, button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
+@media print {
+    h1, div.hiddenWhenPrinted, input.hide, span.hiddenWhenPrinted {
+        display: none;
+    }
+    h1.titlePrint {
+        display: block;
+    }
+    input[type=text], input[type=date] {
+        box-shadow: 0px 0px;
+        border-radius: 0px;
+        width: 100px;
+        border-style: none none dotted none;
+    }
+    input.score {
+        width: 10px;
+    }
+    div.testCredentials {
+        display: inline;
+    }
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border: black 1px solid;
+}
+
+.container:hover input~.checkmark {
+    background-color: grey;
+}
+
+.container input:checked~.checkmark {
+    background-color: black;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 5px;
+    top: 3px;
+    width: 3px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/*div.dsfsfddsa:nth-child(3):after { content:"\A"; white-space:pre; }*/
