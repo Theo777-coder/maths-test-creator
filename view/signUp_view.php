@@ -10,8 +10,7 @@ require_once "links.php";
         <title>Sign up</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../CSS/test.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="../AJAX/tests.js"></script>
+        <script src="../AJAX/commonJS.js"></script>
     </head>
 
 

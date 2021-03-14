@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var header = document.getElementById("navigation");
+    document.body.style.paddingTop = header.offsetHeight + 'px';
     var offset = 0;
     $('#loadHistory').click(function () {
         getHistory(offset);
@@ -13,7 +15,7 @@ function getHistory(offset) {
     $.ajax({
         url: "../model/getHistory.php",
         type: "GET",
-        data: {offset: offset},
+        data: { offset: offset },
         dataType: 'json',
         success: function (data) {
             var i;

@@ -47,7 +47,7 @@ require_once "links.php";
                 <input class="normalBorder" value=1 type="number" id="magnitudeMin" name="magnitudeMin" placeholder="min number">
                 <input class="normalBorder" value=10 type="number" id="magnitudeMax" name="magnitudeMax" placeholder="max number">
                 <input class="normalBorder" value=2 type="number" id="decimalAccuracy" name="decimalAccuracy" placeholder="decimal accuracy"><br>
-                <div id="topicsDiv" class="topics" tabindex="0">
+                <div id="topicsDiv" name="topicsDiv" class="topics" tabindex="0">
                     <label class="container">addition
                         <input type="checkbox" name="topic[]" value="addition" checked>
                         <span class="checkmark"></span>

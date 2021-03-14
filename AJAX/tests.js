@@ -4,11 +4,12 @@ $(document).ready(function () {
     var magnitudeMin = document.forms["testCreationFrom"]["magnitudeMin"];
     var magnitudeMax = document.forms["testCreationFrom"]["magnitudeMax"];
     var decimalAccuracy = document.forms["testCreationFrom"]["decimalAccuracy"];
-    var topicsDiv = document.forms["testCreationFrom"]["topicsDiv"];
+    var topicsDiv = document.getElementById("topicsDiv");
     var nodes = document.querySelectorAll("#testCreationFrom input[type=number]");
     var idProfileContents = document.getElementById("profileContents");
     var header = document.getElementById("navigation");
     var selected = [];
+    document.body.style.paddingTop = header.offsetHeight + 'px';
 
     $('#printTest').click(function printFunction() {
         window.print();
@@ -37,7 +38,6 @@ $(document).ready(function () {
         };
     }
 
-    document.body.style.paddingTop = header.offsetHeight + 'px';
 
     $('#scoreAmount').keyup(function () {
         var score = document.forms["addScoreForm"]["score"];
@@ -78,8 +78,8 @@ $(document).ready(function () {
 
         if (!selected.length) {
             $('#validationMessageTestCreation').text("Please choose at least 1 topic");
-            document.getElementById("topicsDiv").classList.add('topicsWarning');
-            $("#topicsDiv").focus();
+            topicsDiv.classList.add('topicsWarning');
+            topicsDiv.focus();
             return false;
         }
         if (getCookie("timer") === "true") {
@@ -96,7 +96,7 @@ $(document).ready(function () {
     });
 
     $('#topicsDiv').click(function () {
-        document.getElementById("topicsDiv").classList.remove('topicsWarning');
+        topicsDiv.classList.remove('topicsWarning');
     });
 
     if (getCookie("timer") === "true") {
@@ -178,7 +178,6 @@ function timer() {
 
 var check = false;
 var buttonPressed = "";
-var mostRecentButtonPressed = "";
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -200,7 +199,6 @@ function showMessage(button, message) {
     if (button !== "yesButton") {
         idMessageParagraph.textContent = message;
         buttonPressed = button;
-        mostRecentButtonPressed = button;
     }
 
     if (check) {
