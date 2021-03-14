@@ -23,7 +23,7 @@ require_once "../model/dataAccess.php";
                         <div id="profileContents" class="profileInfoBox">
                             <a href="profile_view.php"><?= $_SESSION["username"], "(", $_SESSION["score"], ")" ?></a>
                             <form class="logoutButton" method="POST">
-                                <input class="logout" type="submit" name="logOut" value="Log Out">
+                                <input class="logout" id="logOut" type="submit" name="logOut" value="Log Out">
                             </form>
                         </div>
                     <?php }

@@ -1,4 +1,15 @@
 $(document).ready(function () {
+
+    var noOfTerms = document.forms["testCreationFrom"]["noOfTerms"];
+    var magnitudeMin = document.forms["testCreationFrom"]["magnitudeMin"];
+    var magnitudeMax = document.forms["testCreationFrom"]["magnitudeMax"];
+    var decimalAccuracy = document.forms["testCreationFrom"]["decimalAccuracy"];
+    var topicsDiv = document.forms["testCreationFrom"]["topicsDiv"];
+    var nodes = document.querySelectorAll("#testCreationFrom input[type=number]");
+    var idProfileContents = document.getElementById("profileContents");
+    var header = document.getElementById("navigation");
+    var selected = [];
+
     $('#printTest').click(function printFunction() {
         window.print();
     });
@@ -13,7 +24,6 @@ $(document).ready(function () {
         idLinkShare.select();
     });
 
-    var idProfileContents = document.getElementById("profileContents");
     if (document.getElementById("profileIcon")) {
         $('#profileIcon').click(function () {
             idProfileContents.classList.toggle("profileInfoBoxShow");
@@ -27,24 +37,12 @@ $(document).ready(function () {
         };
     }
 
-
-    var header = document.getElementById("navigation");
-
     document.body.style.paddingTop = header.offsetHeight + 'px';
 
     $('#scoreAmount').keyup(function () {
         var score = document.forms["addScoreForm"]["score"];
         score.className = "small normalBorder";
     });
-
-
-    var noOfTerms = document.forms["testCreationFrom"]["noOfTerms"];
-    var magnitudeMin = document.forms["testCreationFrom"]["magnitudeMin"];
-    var magnitudeMax = document.forms["testCreationFrom"]["magnitudeMax"];
-    var decimalAccuracy = document.forms["testCreationFrom"]["decimalAccuracy"];
-    var topicsDiv = document.forms["testCreationFrom"]["topicsDiv"];
-    var nodes = document.querySelectorAll("#testCreationFrom input[type=number]");
-    var selected = [];
 
 
     $('#createTests').click(function () {
@@ -119,49 +117,34 @@ $(document).ready(function () {
     }
 
 
-
     $('#checkTest').click(function () {
-        if (this.id === "checkTest") {
-            var myForm = document.forms.userAnswers;
-            var answerBoxes = myForm.elements['result[]'];
-            for (var i = 0; i < answerBoxes.length; i++) {
-                var aControl = answerBoxes[i];
-                if (!aControl.value.trim()) {
-                    return showMessage(this.id, "You have unfilled questions, empty questions will be marked as wrong. Continue?");
-                }
+        var myForm = document.forms.userAnswers;
+        var answerBoxes = myForm.elements['result[]'];
+        for (var i = 0; i < answerBoxes.length; i++) {
+            var aControl = answerBoxes[i];
+            if (!aControl.value.trim()) {
+                return showMessage(this.id, "You have unfilled questions, empty questions will be marked as wrong. Continue?");
             }
         }
         return true;
     });
 
-    $('#yesButton, #noButton').click(function () {
+
+    $('#yesButton').click(function () {
         return showMessage(this.id, "");
     });
 
-    $('#overlay').click(function () {
+    $('#overlay, #noButton').click(function () {
         hideMessage();
     });
 
 
-
-    
     if (getCookie("timer") === "true") {
         window.addEventListener('beforeunload', function (e) {
-            if (!(mostRecentButtonPressed === "checkTest") || !(mostRecentButtonPressed === "createTest")) {
+            if (!check) {
                 e.preventDefault();
                 e.returnValue = '';
-                var temp123 = document.forms.userAnswers.elements["result[]"];
-                var individualAnswers = [];
-                for (var i = 0; i < temp123.length; i++) {
-                    individualAnswers.push(temp123[i].value);
-                }
-                $.ajax({
-                    url: "../model/markTest.php",
-                    type: "post",
-                    data: { userAnswers: individualAnswers },
-                    dataType: 'json',
-                });
-
+                recordTest();
             }
 
         });
@@ -193,7 +176,7 @@ function timer() {
     setInterval(add, 1000);
 }
 
-var check = "0";
+var check = false;
 var buttonPressed = "";
 var mostRecentButtonPressed = "";
 
@@ -214,28 +197,22 @@ function getCookie(cname) {
 }
 function showMessage(button, message) {
     var idMessageParagraph = document.getElementById('messageParagraph');
-    if (button !== "yesButton" && button !== "noButton") {
+    if (button !== "yesButton") {
         idMessageParagraph.textContent = message;
         buttonPressed = button;
         mostRecentButtonPressed = button;
     }
 
-    if (check === "1") {
-        if (buttonPressed === "checkTest") {
-            recordTest();
-        }
+    if (check) {
         return true;
     }
 
     if (button === "yesButton") {
-        check = "1";
+        check = true;
+        recordTest();
         $("#" + buttonPressed + "").click();
     }
 
-    if (button === "noButton") {
-        hideMessage();
-        return false;
-    }
 
     document.getElementById("messageBox").classList.remove('hidden');
     document.getElementById("messageBox").classList.add('boxDisplay');
@@ -261,8 +238,13 @@ function recordTest() {
         type: "post",
         data: { testURL: window.location.href, testAnswers: answers }
     });
+    $.ajax({
+        url: "../model/markTest.php",
+        type: "post",
+        data: { userAnswers: answers },
+        dataType: 'json',
+    });
 }
-
 
 function generateError(id, errorMessage) {
     $('#validationMessageTestCreation').text(errorMessage);
