@@ -152,6 +152,8 @@ $(document).ready(function () {
 
 });
 
+var check = false;
+var buttonPressed = "";
 
 function timer() {
 
@@ -175,9 +177,6 @@ function timer() {
     }
     setInterval(add, 1000);
 }
-
-var check = false;
-var buttonPressed = "";
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -208,7 +207,12 @@ function showMessage(button, message) {
     if (button === "yesButton") {
         check = true;
         recordTest();
-        $("#" + buttonPressed + "").click();
+
+        // Without the timer, there isn't enough time to send the answers
+        // To find a better solution
+        setTimeout(function () {
+            $("#" + buttonPressed + "").click();
+        }, 100);
     }
 
 
@@ -232,15 +236,12 @@ function recordTest() {
         answers.push(aControl.value.trim());
     }
     $.ajax({
-        url: "../model/markTest.php",
-        type: "post",
-        data: { userAnswers: answers },
-        dataType: 'json',
-    });
-    $.ajax({
         url: "../model/recordTest.php",
         type: "post",
-        data: { testURL: window.location.href, testAnswers: answers }
+        data: { testURL: window.location.href, testAnswers: answers },
+        success: function () {
+            console.log("test");
+        }
     });
 }
 

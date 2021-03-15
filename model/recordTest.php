@@ -10,8 +10,6 @@ $date2 = new DateTime($endTime);
 $interval = $date1->diff($date2);
 markTest($_POST["testAnswers"]);
 $score = array_count_values($_SESSION["wrongOrRight1"]);
-//$PDO->setAttribute( PDO::ATTR_EMULATE_PREPARES, false );
 $statement = $pdo->prepare("INSERT INTO db_name.tests (userID, startTime, endTime, testTime, score, url) VALUES "
         . "((SELECT users.id FROM db_name.users WHERE username = ?), ?, ?, ?, ?, ?)");
 $statement->execute([$_SESSION["username"], $_SESSION["testStartTime"], $endTime, $interval->format('%H:%M:%S'), (int) $score[1], $testURL]);
-$t = 'INSERT INTO tests (userID, startTime, endTime, testTime, score, url) VALUES ((SELECT users.id FROM users WHERE users.username = '.$_SESSION["username"].'), '.$_SESSION["testStartTime"].', '.$endTime.', '.$interval->format('%H:%M:%S').', '.(int) $score[1].', '.$testURL.')';

@@ -17,9 +17,6 @@ if (isset($_REQUEST["logOut"])) {
     unset($_SESSION["userAnswers"]);
     $_SESSION["decimalAccuracy"] = $_REQUEST["decimalAccuracy"];
     createQuestions($_REQUEST["noOfTerms"], $_REQUEST["magnitudeMin"], $_REQUEST["magnitudeMax"], $_REQUEST["topic"], $_REQUEST["seedID"]);
-// } else if (isset($_REQUEST["checkTest"]) || isset($_REQUEST["yesButton"])) {
-//     $results = markTest($_REQUEST["result"]);
-//     return $results;
 } else if (isset($_REQUEST["retryTest"])) {
     unset($_SESSION["userAnswers"]);
     unset($_SESSION["wrongOrRight1"]);
