@@ -26,7 +26,18 @@ function login($username, $password)
     } else {
         $_SESSION["username"] = $results->username;
         $_SESSION["score"] = $results->score;
+        $_SESSION["token"] = bin2hex(openssl_random_pseudo_bytes(128));
         redirect("../view/tests_view.php");
+    }
+}
+
+function checkToken($form, $token)
+{
+    if (isset($_SESSION["username"])) {
+        $calc = hash_hmac('sha256', $form, $_SESSION['token']);
+        if (!hash_equals($token, $calc)) {
+            die("Unique token not matching");
+        }
     }
 }
 
@@ -103,7 +114,7 @@ function createQuestions($noOfTerms, $magnitudeMin, $magnitudeMax, $topics, $see
         'expires' => time() + 86400,
         //'secure' => true,
         //'httponly' => true,
-        'path' => '/', 
+        'path' => '/',
         'samesite' => 'Strict',
     ]);
     $topicArray = symbolArray($topics);
@@ -139,7 +150,7 @@ function markTest($userAnswers)
         'expires' => time() + 86400,
         //'secure' => true,
         //'httponly' => true,
-        'path' => '/', 
+        'path' => '/',
         'samesite' => 'Strict',
     ]);
     $_SESSION["userAnswers"] = $userAnswers;

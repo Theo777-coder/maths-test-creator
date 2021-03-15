@@ -232,15 +232,15 @@ function recordTest() {
         answers.push(aControl.value.trim());
     }
     $.ajax({
-        url: "../model/recordTest.php",
-        type: "post",
-        data: { testURL: window.location.href, testAnswers: answers }
-    });
-    $.ajax({
         url: "../model/markTest.php",
         type: "post",
         data: { userAnswers: answers },
         dataType: 'json',
+    });
+    $.ajax({
+        url: "../model/recordTest.php",
+        type: "post",
+        data: { testURL: window.location.href, testAnswers: answers }
     });
 }
 

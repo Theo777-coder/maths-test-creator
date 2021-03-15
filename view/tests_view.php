@@ -66,6 +66,7 @@ require_once "links.php";
                     </label><br>
                 </div>
                 <input class="hidden" id="seedID" name="seedID" value="<?= rand(); ?>" />
+                <input type="hidden" name="token" value="<?php echo(hash_hmac('sha256', 'createTests', $_SESSION['token']));?>" />
                 <p class="warning" id="validationMessageTestCreation"></p>
                 <input id="createTests" type="submit" name="createTests" value="Create test">
             </form>

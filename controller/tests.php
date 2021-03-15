@@ -13,6 +13,7 @@ if (isset($_REQUEST["logOut"])) {
     unset($_SESSION['questions']);
     setcookie("timer", "false");
 } else if (isset($_REQUEST["createTests"])) {
+    checkToken("createTests", $_REQUEST["token"]);
     unset($_SESSION["userAnswers"]);
     $_SESSION["decimalAccuracy"] = $_REQUEST["decimalAccuracy"];
     createQuestions($_REQUEST["noOfTerms"], $_REQUEST["magnitudeMin"], $_REQUEST["magnitudeMax"], $_REQUEST["topic"], $_REQUEST["seedID"]);
