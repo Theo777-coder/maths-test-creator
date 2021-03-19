@@ -100,8 +100,8 @@ $(document).ready(function () {
     });
 
     if (getCookie("timer") === "true") {
-        document.getElementById("timer").classList.remove('hidden');
         timer();
+        document.getElementById("timer").classList.remove('hidden');
     }
 
     if (getCookie("timer") === "done") {
@@ -209,7 +209,7 @@ function showMessage(button, message) {
         recordTest();
 
         // Without the timer, there isn't enough time to send the answers
-        // To find a better solution
+        // To do: find a better solution
         setTimeout(function () {
             $("#" + buttonPressed + "").click();
         }, 100);

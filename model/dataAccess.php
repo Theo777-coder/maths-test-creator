@@ -27,6 +27,7 @@ function login($username, $password)
         $_SESSION["username"] = $results->username;
         $_SESSION["score"] = $results->score;
         $_SESSION["token"] = bin2hex(openssl_random_pseudo_bytes(128));
+        $_SESSION['LAST_ACTIVITY'] = time();
         redirect("../view/tests_view.php");
     }
 }
@@ -117,6 +118,7 @@ function createQuestions($noOfTerms, $magnitudeMin, $magnitudeMax, $topics, $see
         'path' => '/',
         'samesite' => 'Strict',
     ]);
+
     $topicArray = symbolArray($topics);
     for ($y = 0; $y < 10; $y++) {
         for ($x = 0; $x < $noOfTerms - 1; $x++) {
@@ -128,6 +130,7 @@ function createQuestions($noOfTerms, $magnitudeMin, $magnitudeMax, $topics, $see
         array_push($tempQuestions, $singleQuestion);
     }
     srand();
+    $_SESSION["timer"] = "true";
     $_SESSION["testStartTime"] = date("Y-m-d H:i:s");
     $_SESSION["questions"] = $tempQuestions;
     unset($_SESSION["correctAnswers"]);
@@ -153,6 +156,7 @@ function markTest($userAnswers)
         'path' => '/',
         'samesite' => 'Strict',
     ]);
+    $_SESSION["timer"] = "done";
     $_SESSION["userAnswers"] = $userAnswers;
     $_SESSION["correctAnswers"] = $correctAnswers;
     $_SESSION["wrongOrRight1"] = $wrongOrRight;
@@ -163,6 +167,38 @@ function markTest($userAnswers)
         addScore($_SESSION["score"], $_SESSION["username"]);
     }
     return $userAnswers;
+}
+
+function checkActivity()
+{
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+        setcookie("timer", "", [
+            'expires' => time() - 3600,
+            //'secure' => true,
+            //'httponly' => true,
+            'path' => '/',
+            'samesite' => 'Strict',
+        ]);
+        unset($_SESSION['timer']);
+        session_unset();
+        session_destroy();
+        return (1);
+        exit();
+        // redirect($_SERVER['PHP_SELF']);
+    }
+    if (isset($_SESSION["LAST_ACTIVITY"])) {
+        $_SESSION["LAST_ACTIVITY"] = time();
+    }
+}
+
+function regenerateSessionID()
+{
+    if (!isset($_SESSION['CREATED'])) {
+        $_SESSION['CREATED'] = time();
+    } else if (time() - $_SESSION['CREATED'] > 1800) {
+        session_regenerate_id(true);
+        $_SESSION['CREATED'] = time();
+    }
 }
 
 function nameChecker($username)

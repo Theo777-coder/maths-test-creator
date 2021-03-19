@@ -73,7 +73,7 @@ require_once "links.php";
         </div>
         <span id="timer" class="hidden hiddenWhenPrinted"> 00:00:00</span><br>
         <?php
-        if (isset($_COOKIE["timer"]) && $_COOKIE["timer"] !== "false") {
+        if (isset($_SESSION["timer"])) {
         ?>
             Test instructions:
             <p>Division: Write answers up to <b><?= $_SESSION["decimalAccuracy"] ?></b> decimal figures</p><br>
