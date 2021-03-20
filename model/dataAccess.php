@@ -171,7 +171,7 @@ function markTest($userAnswers)
 
 function checkActivity()
 {
-    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5 + $_SESSION["timeAddition"])) {
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800 + $_SESSION["timeAddition"])) {
         setcookie("timer", "", [
             'expires' => time() - 3600,
             //'secure' => true,

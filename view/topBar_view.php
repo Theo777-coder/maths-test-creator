@@ -1,5 +1,6 @@
 <?php
 require_once "../model/dataAccess.php";
+require_once "../controller/topBar.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

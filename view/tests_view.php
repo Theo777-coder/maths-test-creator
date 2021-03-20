@@ -2,7 +2,7 @@
 require_once "../model/dataAccess.php";
 require_once "../model/user.php";
 require_once "../controller/tests.php";
-require_once "links.php";
+require_once "topBar_view.php";
 ?>
 <!DOCTYPE HTML>
 <html>
