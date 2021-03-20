@@ -446,12 +446,20 @@ button:disabled, button[disabled] {
 
 .checkmark {
     position: absolute;
-    top: 0;
-    left: 0;
     height: 15px;
     width: 15px;
     background-color: white;
     border: black 1px solid;
+}
+
+.checkmarkNormalPos {
+    top: 0;
+    left: 0;
+}
+
+.checkmarkLogInPos {
+    bottom: 3px;
+    left: 35px;
 }
 
 .container:hover input~.checkmark {

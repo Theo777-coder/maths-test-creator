@@ -8,6 +8,9 @@ require_once "../model/dataAccess.php";
     <link rel="stylesheet" href="../CSS/test.css">
     <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../AJAX/commonJS.js"></script>
 </head>
 <header>
     <nav class="navi" id="navigation">

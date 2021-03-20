@@ -50,19 +50,19 @@ require_once "links.php";
                 <div id="topicsDiv" name="topicsDiv" class="topics" tabindex="0">
                     <label class="container">addition
                         <input type="checkbox" name="topic[]" value="addition" checked>
-                        <span class="checkmark"></span>
+                        <span class="checkmark checkmarkNormalPos"></span>
                     </label><br>
                     <label class="container">subtraction
                         <input type="checkbox" name="topic[]" value="subtraction">
-                        <span class="checkmark"></span>
+                        <span class="checkmark checkmarkNormalPos"></span>
                     </label><br>
                     <label class="container">multiplication
                         <input type="checkbox" name="topic[]" value="multiplication">
-                        <span class="checkmark"></span>
+                        <span class="checkmark checkmarkNormalPos"></span>
                     </label><br>
                     <label class="container">division
                         <input type="checkbox" name="topic[]" value="division">
-                        <span class="checkmark"></span>
+                        <span class="checkmark checkmarkNormalPos"></span>
                     </label><br>
                 </div>
                 <input class="hidden" id="seedID" name="seedID" value="<?= rand(); ?>" />

@@ -6,7 +6,6 @@ $(document).ready(function () {
     var decimalAccuracy = document.forms["testCreationFrom"]["decimalAccuracy"];
     var topicsDiv = document.getElementById("topicsDiv");
     var nodes = document.querySelectorAll("#testCreationFrom input[type=number]");
-    var idProfileContents = document.getElementById("profileContents");
     var header = document.getElementById("navigation");
     var selected = [];
     document.body.style.paddingTop = header.offsetHeight + 'px';
@@ -24,19 +23,6 @@ $(document).ready(function () {
         idLinkShare.focus();
         idLinkShare.select();
     });
-
-    if (document.getElementById("profileIcon")) {
-        $('#profileIcon').click(function () {
-            idProfileContents.classList.toggle("profileInfoBoxShow");
-
-        });
-        window.onclick = function (e) {
-
-            if (!(e.target.id === "profileIcon") && !(e.target.id === "profileContents")) {
-                idProfileContents.classList.remove('profileInfoBoxShow');
-            }
-        };
-    }
 
 
     $('#scoreAmount').keyup(function () {

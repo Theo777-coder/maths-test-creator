@@ -10,11 +10,7 @@ if (checkActivity()){
 }
 regenerateSessionID();
 
-if (isset($_POST["username"]) && isset($_POST["password"])) {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
     if (isset($_REQUEST["logIn"])) {
-        $results = login($username, $password);
+        isset($_REQUEST["keepLoggedIn"]) ? $_SESSION["timeAddition"] = 100000 : $_SESSION["timeAddition"] = 0;
+        $results = login($_POST["username"], $_POST["password"]);
     }
-}
-?>
