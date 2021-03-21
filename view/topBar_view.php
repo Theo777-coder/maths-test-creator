@@ -32,6 +32,7 @@ require_once "../controller/topBar.php";
                         <img id="profileIcon" alt="profile" src="../images/profileIcon.png">
                     </div>
                     <div id="profileContents" class="profileInfoBox">
+                        <div class="upArrow"></div>
                         <a href="profile_view.php"><?= $_SESSION["username"], "(", $_SESSION["score"], ")" ?></a>
                         <form class="logoutButton" method="POST">
                             <input class="logout" id="logOut" type="submit" name="logOut" value="Log Out">

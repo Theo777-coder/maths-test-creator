@@ -26,10 +26,14 @@ require_once "topBar_view.php";
                     <label class="required" for="username">Password</label><br>
                     <input class="normalBorder" type="password" name="password" id="password" placeholder="password" required /><br>
                     <br>
-                    <label class="container">Keep me logged in
-                        <input type="checkbox" name="keepLoggedIn" id="keepLoggedIn" value="Keep me logged in">
-                        <span class="checkmark checkmarkLogInPos"></span>
-                    </label><br>
+                    <div class="tooltip">
+                        <label class="container">Keep me logged in
+                            <input type="checkbox" name="keepLoggedIn" id="keepLoggedIn" value="Keep me logged in">
+                            <span class="checkmark checkmarkLogInPos"></span>
+                        </label>
+                        <span class="tooltiptext tooltipLogInPos">Won't log you out after 30 minutes of inactivity. Don't tick on public computers such as at school/library.</span>
+                    </div>
+                    <br>
                     <input type="submit" name="logIn" value="Log In" /><br>
                 </form>
             <?php

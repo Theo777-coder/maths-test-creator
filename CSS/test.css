@@ -145,7 +145,7 @@ div.boxDisplay {
     display: none;
     position: absolute;
     right: 10px;
-    margin-top: 10px;
+    margin-top: 16px;
     background-color: white;
     z-index: 2000;
 }
@@ -165,7 +165,10 @@ div.boxDisplay {
     outline: none;
 }
 
-input[type=text], input[type=password], input[type=email], select {
+input[type=text],
+input[type=password],
+input[type=email],
+select {
     padding: 12px 20px;
     box-shadow: 1px 1px;
     border-radius: 5px;
@@ -173,7 +176,8 @@ input[type=text], input[type=password], input[type=email], select {
     outline: none;
 }
 
-input.normalBorder, select.normalBorder {
+input.normalBorder,
+select.normalBorder {
     border: 1px solid black;
 }
 
@@ -271,7 +275,8 @@ table {
     width: 100%;
 }
 
-td, th {
+td,
+th {
     border: 1px solid black;
     padding: 8px;
 }
@@ -398,20 +403,25 @@ h1.titlePrint {
     z-index: 1;
 }
 
-button:disabled, button[disabled] {
+button:disabled,
+button[disabled] {
     border: 1px solid #999999;
     background-color: #cccccc;
     color: #666666;
 }
 
 @media print {
-    h1, div.hiddenWhenPrinted, input.hide, span.hiddenWhenPrinted {
+    h1,
+    div.hiddenWhenPrinted,
+    input.hide,
+    span.hiddenWhenPrinted {
         display: none;
     }
     h1.titlePrint {
         display: block;
     }
-    input[type=text], input[type=date] {
+    input[type=text],
+    input[type=date] {
         box-shadow: 0px 0px;
         border-radius: 0px;
         width: 100px;
@@ -458,8 +468,8 @@ button:disabled, button[disabled] {
 }
 
 .checkmarkLogInPos {
-    bottom: 3px;
-    left: 35px;
+    bottom: 2px;
+    left: 0px;
 }
 
 .container:hover input~.checkmark {
@@ -491,5 +501,66 @@ button:disabled, button[disabled] {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    margin-bottom: 5px;
+}
+
+.upArrow {
+    padding: 5px;
+    border-width: thin;
+    border-style: solid;
+    border-color: black black transparent transparent;
+    outline: none;
+    position: absolute;
+    right: 8px;
+    margin-top: -16px;
+    background-color: white;
+    z-index: 2000;
+    transform: rotate(-45deg);
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltipTestPos {
+    bottom: 100%;
+}
+
+.tooltipLogInPos {
+    bottom: 150%;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
 
 /*div.dsfsfddsa:nth-child(3):after { content:"\A"; white-space:pre; }*/

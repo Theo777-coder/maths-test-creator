@@ -43,10 +43,22 @@ require_once "topBar_view.php";
             ?>
             <h2>Generate tests</h2>
             <form id="testCreationFrom" name="testCreationFrom" action="tests_view.php" method="GET">
-                <input class="normalBorder" value=2 type="number" id="noOfTerms" name="noOfTerms" placeholder="number of terms">
-                <input class="normalBorder" value=1 type="number" id="magnitudeMin" name="magnitudeMin" placeholder="min number">
-                <input class="normalBorder" value=10 type="number" id="magnitudeMax" name="magnitudeMax" placeholder="max number">
-                <input class="normalBorder" value=2 type="number" id="decimalAccuracy" name="decimalAccuracy" placeholder="decimal accuracy"><br>
+                <div class="tooltip">
+                    <input class="normalBorder" value=2 type="number" id="noOfTerms" name="noOfTerms" placeholder="number of terms">
+                    <span class="tooltiptext tooltipTestPos">How many terms each question will have. Must be at least 2.</span>
+                </div>
+                <div class="tooltip">
+                    <input class="normalBorder" value=1 type="number" id="magnitudeMin" name="magnitudeMin" placeholder="min number">
+                    <span class="tooltiptext tooltipTestPos">Min number for the random generation.</span>
+                </div>
+                <div class="tooltip">
+                    <input class="normalBorder" value=10 type="number" id="magnitudeMax" name="magnitudeMax" placeholder="max number">
+                    <span class="tooltiptext tooltipTestPos">Max number for the random generation</span>
+                </div>
+                <div class="tooltip">
+                    <input class="normalBorder" value=2 type="number" id="decimalAccuracy" name="decimalAccuracy" placeholder="decimal accuracy">
+                    <span class="tooltiptext tooltipTestPos">Up to how many decimal figures a division will be rounded to.</span>
+                </div><br>
                 <div id="topicsDiv" name="topicsDiv" class="topics" tabindex="0">
                     <label class="container">addition
                         <input type="checkbox" name="topic[]" value="addition" checked>
@@ -66,7 +78,7 @@ require_once "topBar_view.php";
                     </label><br>
                 </div>
                 <input class="hidden" id="seedID" name="seedID" value="<?= rand(); ?>" />
-                <input type="hidden" name="token" value="<?php echo(hash_hmac('sha256', 'createTests', $_SESSION['token']));?>" />
+                <input type="hidden" name="token" value="<?php echo (hash_hmac('sha256', 'createTests', $_SESSION['token'])); ?>" />
                 <p class="warning" id="validationMessageTestCreation"></p>
                 <input id="createTests" type="submit" name="createTests" value="Create test">
             </form>
@@ -90,7 +102,7 @@ require_once "topBar_view.php";
                         <p class="ex4">
                             <b><?= ($i + 1) . ")" ?></b>
                             <?=
-                                "\(" . $_SESSION["questions"][$i] . " = \)";
+                            "\(" . $_SESSION["questions"][$i] . " = \)";
                             if (!isset($_SESSION["correctAnswers"])) {
                             ?>
                                 <input name="result[]" type="text" class="questions userAnswers normalBorder">
