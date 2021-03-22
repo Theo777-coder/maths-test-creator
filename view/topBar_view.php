@@ -25,7 +25,7 @@ require_once "../controller/topBar.php";
             ?>
             <div class="topcorner">
                 <?php if (!isset($_SESSION["username"])) { ?>
-                    <a class="navLinks" href="view/login_view.php">Log in</a>
+                    <a class="navLinks" href="login_view.php">Log in</a>
                     <a class="navLinks" href="signUp_view.php">Sign up</a>
                 <?php } else { ?>
                     <div id="profileIconTest" class="profileIcon">
