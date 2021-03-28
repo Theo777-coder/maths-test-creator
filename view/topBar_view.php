@@ -14,7 +14,7 @@ require_once "../controller/topBar.php";
     <script src="../AJAX/commonJS.js"></script>
 </head>
 <header>
-    <nav class="navi" id="navigation">
+    <nav class="navi absolute" id="navigation">
         <div id="linkBar" class="hiddenWhenPrinted">
             <a class="navLinks" href="tests_view.php">Tests</a>
             <?php
