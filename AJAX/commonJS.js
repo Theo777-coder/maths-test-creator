@@ -3,9 +3,11 @@ $(document).ready(function() {
 
     window.onscroll = function() {
         if (window.pageYOffset > header.offsetTop) {
+            document.body.style.paddingTop = header.offsetHeight + 'px';
             header.classList.remove("absolute");
             header.classList.add("fixed");
         } else if (window.pageYOffset == 0) {
+            document.body.style.paddingTop = null;
             header.classList.remove("fixed");
             header.classList.add("absolute");
         }

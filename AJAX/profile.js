@@ -1,8 +1,6 @@
-$(document).ready(function () {
-    var header = document.getElementById("navigation");
-    document.body.style.paddingTop = header.offsetHeight + 'px';
+$(document).ready(function() {
     var offset = 0;
-    $('#loadHistory').click(function () {
+    $('#loadHistory').click(function() {
         getHistory(offset);
         offset = offset + 10;
     });
@@ -17,7 +15,7 @@ function getHistory(offset) {
         type: "GET",
         data: { offset: offset },
         dataType: 'json',
-        success: function (data) {
+        success: function(data) {
             var i;
             if (!$.trim(data)) {
                 $("#loadHistory").prop("disabled", true);
@@ -30,4 +28,3 @@ function getHistory(offset) {
         }
     });
 }
-

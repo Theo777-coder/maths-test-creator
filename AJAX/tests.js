@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     var noOfTerms = document.forms["testCreationFrom"]["noOfTerms"];
     var magnitudeMin = document.forms["testCreationFrom"]["magnitudeMin"];
@@ -6,9 +6,7 @@ $(document).ready(function () {
     var decimalAccuracy = document.forms["testCreationFrom"]["decimalAccuracy"];
     var topicsDiv = document.getElementById("topicsDiv");
     var nodes = document.querySelectorAll("#testCreationFrom input[type=number]");
-    var header = document.getElementById("navigation");
     var selected = [];
-    document.body.style.paddingTop = header.offsetHeight + 'px';
 
     $('#printTest').click(function printFunction() {
         window.print();
@@ -25,15 +23,15 @@ $(document).ready(function () {
     });
 
 
-    $('#scoreAmount').keyup(function () {
+    $('#scoreAmount').keyup(function() {
         var score = document.forms["addScoreForm"]["score"];
         score.className = "small normalBorder";
     });
 
 
-    $('#createTests').click(function () {
+    $('#createTests').click(function() {
 
-        $('#topicsDiv input:checked').each(function () {
+        $('#topicsDiv input:checked').each(function() {
             selected.push($(this).attr('value'));
         });
 
@@ -77,11 +75,11 @@ $(document).ready(function () {
     });
 
 
-    $('#magnitudeMax, #magnitudeMin, #noOfTerms, #decimalAccuracy').keyup(function () {
+    $('#magnitudeMax, #magnitudeMin, #noOfTerms, #decimalAccuracy').keyup(function() {
         document.getElementById(this.id).className = "normalBorder";
     });
 
-    $('#topicsDiv').click(function () {
+    $('#topicsDiv').click(function() {
         topicsDiv.classList.remove('topicsWarning');
     });
 
@@ -96,14 +94,14 @@ $(document).ready(function () {
             url: "../model/getTime.php",
             type: "post",
             dataType: 'json',
-            success: function (data) {
+            success: function(data) {
                 document.getElementById("timer").textContent = data;
             }
         });
     }
 
 
-    $('#checkTest').click(function () {
+    $('#checkTest').click(function() {
         var myForm = document.forms.userAnswers;
         var answerBoxes = myForm.elements['result[]'];
         for (var i = 0; i < answerBoxes.length; i++) {
@@ -116,17 +114,17 @@ $(document).ready(function () {
     });
 
 
-    $('#yesButton').click(function () {
+    $('#yesButton').click(function() {
         return showMessage(this.id, "");
     });
 
-    $('#overlay, #noButton').click(function () {
+    $('#overlay, #noButton').click(function() {
         hideMessage();
     });
 
 
     if (getCookie("timer") === "true") {
-        window.addEventListener('beforeunload', function (e) {
+        window.addEventListener('beforeunload', function(e) {
             if (!check) {
                 e.preventDefault();
                 e.returnValue = '';
@@ -146,6 +144,7 @@ function timer() {
     var seconds = 0;
     var minutes = 0;
     var hours = 0;
+
     function add() {
         seconds++;
         if (seconds >= 60) {
@@ -179,6 +178,7 @@ function getCookie(cname) {
     }
     return "";
 }
+
 function showMessage(button, message) {
     var idMessageParagraph = document.getElementById('messageParagraph');
     if (button !== "yesButton") {
@@ -196,7 +196,7 @@ function showMessage(button, message) {
 
         // Without the timer, there isn't enough time to send the answers
         // To do: find a better solution
-        setTimeout(function () {
+        setTimeout(function() {
             $("#" + buttonPressed + "").click();
         }, 100);
     }
@@ -208,6 +208,7 @@ function showMessage(button, message) {
 
     return false;
 }
+
 function hideMessage() {
     document.getElementById("messageBox").classList.add('hidden');
     document.getElementById("messageBox").classList.remove('boxDisplay');
@@ -225,7 +226,7 @@ function recordTest() {
         url: "../model/recordTest.php",
         type: "post",
         data: { testURL: window.location.href, testAnswers: answers },
-        success: function () {
+        success: function() {
             console.log("test");
         }
     });
