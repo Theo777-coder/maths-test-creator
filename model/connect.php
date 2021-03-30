@@ -11,6 +11,6 @@ $pdo = new PDO("pgsql:" . sprintf(
 ));
 
 //localhost login
-$dsn = "pgsql:host=localhost;port=5432;dbname=postgres;user=postgres;password=postgres";
-$pdo = new PDO($dsn);
+// $dsn = "pgsql:host=localhost;port=5432;dbname=postgres;user=postgres;password=postgres";
+// $pdo = new PDO($dsn);
 ?>
