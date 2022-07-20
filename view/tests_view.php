@@ -9,7 +9,7 @@ require_once "topBar_view.php";
 
 <head>
     <title>Tests</title>
-    <link rel="stylesheet" href="../CSS/test.css">
+    <!-- <link rel="stylesheet" href="../CSS/test.css"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
